@@ -25,8 +25,10 @@ mongoose.connect(process.env.MONGODB_URI)
 
 app.use('/api/auth', authRoutes);
 
-// Start the server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running Successfully on port ${PORT}`);
-});
+// Remove app.listen for Vercel compatibility
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => {
+//   console.log(`Server running Successfully on port ${PORT}`);
+// });
+
+export default app;
