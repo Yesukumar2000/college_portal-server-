@@ -17,12 +17,12 @@ mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB Successfully'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
-// Use authentication routes
-// app.use('/', (req, res) => {
-//   res.send("Server running Successfully");
-//   // console.log("Server running Successfully");
-// });
+// Default route for health check or deployment verification
+app.get('/', (req, res) => {
+  res.send('Server running Successfully');
+});
 
+// Use authentication routes
 app.use('/api/auth', authRoutes);
 
 // Remove app.listen for Vercel compatibility
